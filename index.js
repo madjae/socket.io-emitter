@@ -57,6 +57,8 @@ function Emitter(redis, opts){
   }
 
   this.redis = redis;
+  if (opts.auth) this.redis.auth(opts.auth);
+	
   this.key = (opts.key || 'socket.io') + '#emitter';
 
   this._rooms = [];
